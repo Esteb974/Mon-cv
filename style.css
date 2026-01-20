@@ -9,13 +9,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* Fond sombre futuriste identique au header */
-    background: linear-gradient(160deg, #0f2027, #203a43, #2c5364);
+    background: #1a1a1f; /* fond sombre futuriste */
     color: #e0e0e0;
     line-height: 1.6;
-    min-height: 100vh;
-    background-attachment: fixed; /* effet fixe pour plus de profondeur */
-    background-size: cover;
 }
 
 /* ========================================
@@ -84,6 +80,7 @@ header {
     justify-content: center;
     height: 85vh;
     text-align: center;
+    background: linear-gradient(160deg, #0f2027, #203a43, #2c5364); /* dégradé sombre et profond */
     color: #e0e0e0;
     position: relative;
     box-shadow: inset 0 -10px 50px rgba(0,0,0,0.4);
@@ -125,15 +122,10 @@ section {
     margin: 0 auto;
     padding: 100px 40px 60px;
     animation: fadeInUp 0.7s ease-in-out;
-
-    /* même fond que body pour toutes les sections */
-    background: inherit;
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.2); /* léger relief derrière le contenu */
-    border-radius: 12px;
 }
 
 /* ========================================
-   TEXTE SECTIONS
+   TEXTE SECTIONS - EXPÉRIENCES, PARCOURS, COMPÉTENCES, PASSIONS
    ======================================== */
 .experience-item p,
 .experience-item ul,
@@ -141,18 +133,20 @@ section {
 .soft-skill-block p,
 .hobby-item p,
 .contact-card p {
-    font-size: 1em;
-    line-height: 1.8;
-    margin-bottom: 12px;
-    color: #cfd8dc;
+    font-size: 1em;          /* légèrement plus grand pour la lisibilité */
+    line-height: 1.8;        /* plus d’espace entre les lignes */
+    margin-bottom: 12px;     /* espace entre les paragraphes/liste */
+    color: #cfd8dc;          /* couleur claire douce pour lecture */
 }
 
+/* Espacement des listes */
 .experience-item ul li,
 .timeline-item ul li {
-    margin-bottom: 8px;
-    padding-left: 22px;
+    margin-bottom: 8px;      /* un peu plus d’espace entre les éléments */
+    padding-left: 22px;      /* décalage pour respirer */
 }
 
+/* Amélioration visuelle des points des listes */
 .experience-item ul li::before,
 .timeline-item ul li::before {
     content: "▶";
@@ -160,19 +154,22 @@ section {
     left: 0;
     color: #4fc3f7;
     font-weight: bold;
-    top: 0.2em;
+    top: 0.2em;              /* ajuste la position verticale pour centrer avec le texte */
 }
 
+/* Timeline - plus de respiration entre les éléments */
 .timeline-item {
     margin-bottom: 25px;
     padding-left: 28px;
     border-left: 4px solid #4fc3f7;
 }
 
+/* Optionnel: paragraphes dans la timeline légèrement plus espacés */
 .timeline-item p {
     margin-bottom: 10px;
 }
 
+/* Pour les titres de cartes */
 .experience-item h4,
 .timeline-item h4,
 .soft-skill-block h4,
@@ -183,10 +180,11 @@ section {
     color: #4fc3f7;
 }
 
+
 /* TITRES AVEC RELIEF */
 .section-title {
     font-size: 2em;
-    color: #4fc3f7;
+    color: #4fc3f7; /* bleu électrique */
     margin-bottom: 25px;
     border-bottom: 3px solid #4fc3f7;
     display: inline-block;
@@ -201,7 +199,7 @@ section {
 .soft-skill-block,
 .hobby-item,
 .contact-card {
-    background: rgba(43,43,56,0.85); /* carte semi-transparente pour voir le fond derrière */
+    background: #2b2b38; /* carte sombre */
     border-radius: 16px;
     padding: 28px 24px;
     margin-bottom: 25px;
@@ -222,13 +220,15 @@ section {
 .soft-skill-block h3,
 .hobby-item h3 {
     font-size: 1.3em;
-    color: #4fc3f7;
+    color: #4fc3f7; /* bleu électrique */
     margin-bottom: 12px;
 }
 
-/* BARRES DE COMPETENCES */
+/* ========================================
+   BARRES DE COMPETENCES
+   ======================================== */
 .skill-bar {
-    background: #1f1f2a;
+    background: #1f1f2a; /* sombre neutre */
     height: 16px;
     border-radius: 12px;
     overflow: hidden;
@@ -253,7 +253,7 @@ section {
    FOOTER
    ======================================== */
 footer {
-    background: rgba(31,31,42,0.9);
+    background: #1f1f2a;
     padding: 30px;
     text-align: center;
     font-size: 0.9em;
@@ -276,4 +276,4 @@ footer {
     header { height: auto; padding: 60px 20px; }
     nav ul { flex-direction: column; }
     nav ul li { margin: 10px 0; }
-    section { padding: 60px 20px; }
+}
