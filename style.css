@@ -273,7 +273,37 @@ footer {
    RESPONSIVE
    ======================================== */
 @media (max-width: 768px) {
-    header { height: auto; padding: 60px 20px; }
-    nav ul { flex-direction: column; }
-    nav ul li { margin: 10px 0; }
+    header {
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    /* Menu vertical sur mobile */
+    nav ul {
+        flex-direction: column;
+        align-items: center; /* centre les liens verticalement */
+        gap: 12px;           /* espace entre chaque lien */
+    }
+
+    nav ul li {
+        margin: 0; /* plus besoin de marge horizontale */
+    }
+
+    nav ul li a {
+        font-size: 1.1em;   /* un peu plus lisible sur petit écran */
+        padding: 12px 20px; /* espace cliquable plus grand */
+    }
+
+    /* Sections plus compactes sur mobile */
+    section {
+        padding: 60px 20px;
+    }
+
+    /* Ajustement des cartes */
+    .experience-item,
+    .soft-skill-block,
+    .hobby-item,
+    .contact-card {
+        padding: 20px 18px;
+    }
 }
