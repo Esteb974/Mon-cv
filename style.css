@@ -4,7 +4,7 @@
 :root {
     --bg-main: linear-gradient(160deg, #e3f2fd, #f0f4fa);
     --bg-card: #ffffff;
-    --bg-nav: rgba(255,255,255,0.95);
+    --bg-nav: rgba(255,255,255,0.9);
     --bg-footer: #eef1f6;
 
     --text-main: #1f2933;
@@ -25,10 +25,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: 'Poppins', sans-serif;
     background: var(--bg-main);
@@ -42,93 +38,34 @@ a {
     transition: 0.3s ease;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 /* ========================================
-   NAVIGATION - DESKTOP & MOBILE
+   NAVIGATION
    ======================================== */
 nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset: 0 0 auto 0;
     background: var(--bg-nav);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    padding: 15px 20px;
+    padding: 12px 0;
     box-shadow: var(--shadow-soft);
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
+nav ul {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo {
-    font-size: 1.3em;
-    font-weight: 700;
-    color: var(--accent);
-    z-index: 1001;
-}
-
-/* Bouton hamburger (caché sur desktop) */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    z-index: 1001;
-}
-
-.menu-toggle span {
-    width: 28px;
-    height: 3px;
-    background: var(--text-main);
-    border-radius: 3px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Animation hamburger -> X */
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
-}
-
-/* Menu Desktop */
-.nav-menu {
-    display: flex;
+    justify-content: center;
     gap: 32px;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
-.nav-menu a {
+nav a {
     font-weight: 600;
-    font-size: 0.95em;
     color: var(--text-main);
     position: relative;
-    padding: 8px 0;
-    display: block;
+    padding: 6px 0;
 }
 
-.nav-menu a::after {
+nav a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -137,26 +74,25 @@ nav {
     width: 0;
     background: var(--accent);
     border-radius: 3px;
-    transition: width 0.3s ease;
+    transition: 0.3s;
 }
 
-.nav-menu a:hover::after,
-.nav-menu a.active::after {
+nav a:hover::after {
     width: 100%;
 }
+
 
 /* ========================================
    HEADER
    ======================================== */
 header {
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     background: linear-gradient(160deg, #c5d9f1, #e3f2fd);
-    padding: 80px 20px 40px;
 }
 
 .photo-header {
@@ -170,15 +106,13 @@ header {
 }
 
 header h1 {
-    font-size: clamp(2em, 6vw, 2.6em);
+    font-size: 2.6em;
     margin-bottom: 8px;
-    font-weight: 700;
 }
 
 header p {
-    font-size: clamp(0.95em, 3vw, 1.05em);
+    font-size: 1.05em;
     color: var(--text-muted);
-    margin-bottom: 6px;
 }
 
 /* ========================================
@@ -199,8 +133,7 @@ header p {
     border-radius: 30px;
     min-width: 190px;
     text-align: center;
-    transition: all 0.3s ease;
-    display: inline-block;
+    transition: 0.3s;
 }
 
 .btn-primary {
@@ -232,15 +165,15 @@ section {
     max-width: 900px;
     margin: auto;
     padding: 90px 30px 60px;
+    animation: fadeInUp 0.6s ease;
 }
 
 .section-title {
-    font-size: clamp(1.5em, 5vw, 1.8em);
+    font-size: 1.8em;
     color: var(--accent);
     margin-bottom: 24px;
     border-left: 5px solid var(--accent);
     padding-left: 12px;
-    font-weight: 700;
 }
 
 /* ========================================
@@ -248,7 +181,7 @@ section {
    ======================================== */
 section p,
 section li {
-    font-size: clamp(0.9em, 2.5vw, 0.95em);
+    font-size: 0.95em;
     line-height: 1.7;
     margin-bottom: 12px;
     color: var(--text-main);
@@ -267,7 +200,7 @@ section li {
     padding: 24px;
     margin-bottom: 24px;
     box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .experience-item:hover,
@@ -282,36 +215,9 @@ section li {
 .experience-item h3,
 .soft-skill-block h3,
 .hobby-item h3 {
-    font-size: clamp(1.1em, 4vw, 1.2em);
+    font-size: 1.2em;
     color: var(--accent);
     margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.experience-item h4 {
-    font-size: 1.05em;
-    font-weight: 600;
-    color: var(--text-main);
-    margin: 1.25rem 0 0.75rem;
-}
-
-.experience-item ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.experience-item li {
-    padding-left: 1.5rem;
-    position: relative;
-    margin-bottom: 0.5rem;
-}
-
-.experience-item li::before {
-    content: "•";
-    position: absolute;
-    left: 0.5rem;
-    color: var(--accent);
-    font-weight: bold;
 }
 
 /* ========================================
@@ -320,10 +226,9 @@ section li {
 .skill-bar {
     height: 14px;
     border-radius: 10px;
-    background: rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.3);
     overflow: hidden;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-    margin: 10px 0;
 }
 
 .skill-level {
@@ -340,14 +245,6 @@ section li {
     transition: width 0.8s ease-in-out;
 }
 
-.skill-item .skill-name {
-    font-size: 1.05em;
-    font-weight: 600;
-    color: var(--text-main);
-    display: block;
-    margin-bottom: 8px;
-}
-
 .skill-item p,
 .skill-item span {
     margin: 0;
@@ -361,7 +258,7 @@ section li {
 }
 
 /* ========================================
-   TIMELINE – PARCOURS ACADÉMIQUE
+   TIMELINE – PARCOURS ACADÉMIQUE (CARTES)
    ======================================== */
 .timeline {
     position: relative;
@@ -369,25 +266,14 @@ section li {
     padding-left: 160px;
 }
 
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 70px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--accent);
-    border-radius: 3px;
-}
-
 .timeline-item {
     position: relative;
     margin-bottom: 35px;
-    padding: 18px 24px;
+    padding: 18px 24px 18px 40px;
     background: var(--bg-card);
     border-radius: 14px;
     box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .timeline-item:hover {
@@ -398,32 +284,22 @@ section li {
 .timeline-item::before {
     content: "";
     position: absolute;
-    left: -90px;
-    top: 24px;
-    width: 14px;
-    height: 14px;
+    left: -40px;
+    top: 12px;
+    height: calc(100% - 24px);
+    width: 4px;
     background: var(--accent);
-    border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 0 0 3px var(--accent);
+    border-radius: 4px;
 }
 
 .timeline-date {
     position: absolute;
     left: -160px;
-    top: 18px;
     width: 140px;
     text-align: right;
     font-weight: 600;
     color: var(--accent);
     font-size: 0.95em;
-}
-
-.timeline-item h3 {
-    font-size: 1.15em;
-    font-weight: 600;
-    color: var(--text-main);
-    margin-bottom: 8px;
 }
 
 .timeline-item p,
@@ -432,8 +308,27 @@ section li {
     color: var(--text-main);
     font-size: 0.95em;
     line-height: 1.6;
-    margin-bottom: 8px;
 }
+
+/* ========================================
+   PARCOURS – STYLE LISTE PROPRE
+   ======================================== */
+.parcours-item {
+    position: relative;
+    padding-left: 26px;
+}
+
+.parcours-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 5px;
+    height: calc(100% - 28px);
+    background: var(--accent);
+    border-radius: 4px;
+}
+
 
 /* ========================================
    POPUP CONTACT
@@ -445,7 +340,6 @@ section li {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(4px);
     display: none;
     justify-content: center;
     align-items: center;
@@ -471,26 +365,25 @@ section li {
 .popup-content h3 {
     margin-bottom: 16px;
     color: var(--accent);
-    font-size: 1.4em;
 }
 
 .popup-content p {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     color: var(--text-main);
 }
 
-.popup-content .btn {
-    margin: 8px 0;
-    width: 100%;
-    max-width: 280px;
+.popup-content a {
+    color: white);
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .popup-close {
     display: inline-block;
-    margin-top: 20px;
-    color: var(--text-muted);
+    margin-top: 10px;
+    color: black);
     font-size: 0.9em;
-    cursor: pointer;
+    text-decoration: none;
     transition: 0.3s;
 }
 
@@ -508,7 +401,7 @@ section li {
    ======================================== */
 footer {
     background: var(--bg-footer);
-    padding: 28px 20px;
+    padding: 28px;
     text-align: center;
     font-size: 0.85em;
     color: var(--text-muted);
@@ -523,215 +416,47 @@ footer {
 }
 
 /* ========================================
-   RESPONSIVE - TABLETTE
-   ======================================== */
-@media (max-width: 992px) {
-    .timeline {
-        padding-left: 120px;
-    }
-
-    .timeline::before {
-        left: 50px;
-    }
-
-    .timeline-item::before {
-        left: -70px;
-    }
-
-    .timeline-date {
-        left: -120px;
-        width: 100px;
-    }
-}
-
-/* ========================================
-   RESPONSIVE - MOBILE
+   RESPONSIVE
    ======================================== */
 @media (max-width: 768px) {
-    
-    /* Navigation mobile avec menu hamburger */
-    .menu-toggle {
-        display: flex;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 75%;
-        max-width: 300px;
-        background: var(--bg-card);
-        flex-direction: column;
-        gap: 0;
-        padding: 80px 30px 30px;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow-y: auto;
-    }
-
-    .nav-menu.active {
-        right: 0;
-    }
-
-    .nav-menu li {
-        margin: 0;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .nav-menu li:last-child {
-        border-bottom: none;
-    }
-
-    .nav-menu a {
-        padding: 18px 0;
-        font-size: 1.05em;
-    }
-
-    .nav-menu a::after {
-        display: none;
-    }
-
-    .nav-menu a:hover {
-        color: var(--accent);
-        padding-left: 8px;
-    }
-
-    /* Overlay pour fermer le menu */
-    .nav-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
-    }
-
-    .nav-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Header mobile */
-    header {
-        min-height: 90vh;
-        padding: 80px 20px 40px;
-    }
 
     header h1 {
-        font-size: 2em;
+        font-size: 2.2em;
     }
 
-    .photo-header {
-        width: 120px;
-        height: 120px;
-    }
-
-    /* Sections mobile */
     section {
-        padding: 60px 20px 40px;
+        padding: 60px 20px;
     }
 
-    .section-title {
-        font-size: 1.5em;
-    }
-
-    /* Boutons mobile */
     .btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 260px;
     }
 
-    /* Timeline mobile */
     .timeline {
         padding-left: 30px;
     }
 
-    .timeline::before {
-        left: 0;
-    }
-
     .timeline-item {
-        padding: 16px 20px;
         padding-left: 20px;
     }
 
     .timeline-item::before {
-        left: -38px;
-        top: 20px;
-        width: 12px;
-        height: 12px;
+        left: 0;
+        top: 0;
+        height: 100%;
     }
 
     .timeline-date {
         position: relative;
         left: 0;
-        top: 0;
         width: auto;
         text-align: left;
-        display: block;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
         font-size: 0.9em;
     }
-
-    /* Cartes mobile */
-    .experience-item,
-    .soft-skill-block,
-    .hobby-item,
-    .skill-item {
-        padding: 20px;
-        margin-bottom: 20px;
-    }
 }
 
-/* ========================================
-   RESPONSIVE - PETIT MOBILE
-   ======================================== */
-@media (max-width: 480px) {
-    nav {
-        padding: 12px 15px;
-    }
 
-    .nav-logo {
-        font-size: 1.1em;
-    }
 
-    header {
-        padding: 70px 15px 30px;
-    }
 
-    section {
-        padding: 50px 15px 30px;
-    }
-
-    .experience-item,
-    .soft-skill-block,
-    .hobby-item,
-    .skill-item {
-        padding: 16px;
-    }
-
-    .popup-content {
-        padding: 25px 20px;
-    }
-}
-
-/* ========================================
-   UTILITAIRES
-   ======================================== */
-.skills-grid,
-.soft-skills,
-.hobbies {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-/* Empêcher le scroll quand le menu est ouvert */
-body.menu-open {
-    overflow: hidden;
-}
